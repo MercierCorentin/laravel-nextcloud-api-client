@@ -4,7 +4,7 @@ namespace MercierCorentin\Nextcloud;
 use MercierCorentin\Nextcloud\Exceptions\XMLParseException;
 
 /**
-* class MasterZero\Nextcloud\Response
+* class MercierCorentin\Nextcloud\Response
 */
 class Response
 {
@@ -38,7 +38,7 @@ class Response
     /**
      * @param $answer | string: http content
      * @param $code | int: http code of answer
-     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
      */
     public function __construct(string $answer = '', int $code = 0)
     {

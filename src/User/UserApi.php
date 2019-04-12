@@ -21,10 +21,10 @@ class UserApi extends Api
      *    success: is success request
      *    message: comment message from nextcloud server
      *    users: array of userid's
-     *    response | MasterZero\Nextcloud\Response: response object with details of nextcloud answer
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
      *    ]
-     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
-     * @throws MasterZero\Nextcloud\Exceptions\CurlException
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
      */
     public function getUserList(string $search = '', int $limit = 0, int $offset = 0) : array
     {
@@ -76,10 +76,10 @@ class UserApi extends Api
      * @return array [
      *    success: is success request
      *    message: comment message from nextcloud server
-     *    response | MasterZero\Nextcloud\Response: response object with details of nextcloud answer
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
      *    ]
-     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
-     * @throws MasterZero\Nextcloud\Exceptions\CurlException
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
      */
     public function createUser(
         string $userid,     
@@ -130,10 +130,10 @@ class UserApi extends Api
      * @return array [
      *    success: is success request
      *    message: comment message from nextcloud server
-     *    response | MasterZero\Nextcloud\Response: response object with details of nextcloud answer
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
      *    ]
-     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
-     * @throws MasterZero\Nextcloud\Exceptions\CurlException
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
      */
     public function editUser(string $userid, string $key, string $value) : array
     {
@@ -165,10 +165,10 @@ class UserApi extends Api
      * @return array [
      *    success: is success request
      *    message: comment message from nextcloud server
-     *    response | MasterZero\Nextcloud\Response: response object with details of nextcloud answer
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
      *    ]
-     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
-     * @throws MasterZero\Nextcloud\Exceptions\CurlException
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
      */
     public function Welcome(string $userid) : array
     {
@@ -196,10 +196,10 @@ class UserApi extends Api
      * @return array [
      *    success: is success request
      *    message: comment message from nextcloud server
-     *    response | MasterZero\Nextcloud\Response: response object with details of nextcloud answer
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
      *    ]
-     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
-     * @throws MasterZero\Nextcloud\Exceptions\CurlException
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
      */
     public function disableUser(string $userid) : array
     {
@@ -227,10 +227,10 @@ class UserApi extends Api
      * @return array [
      *    success: is success request
      *    message: comment message from nextcloud server
-     *    response | MasterZero\Nextcloud\Response: response object with details of nextcloud answer
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
      *    ]
-     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
-     * @throws MasterZero\Nextcloud\Exceptions\CurlException
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
      */
     public function enableUser(string $userid) : array
     {
@@ -257,10 +257,10 @@ class UserApi extends Api
      * @return array [
      *    success: is success request
      *    message: comment message from nextcloud server
-     *    response | MasterZero\Nextcloud\Response: response object with details of nextcloud answer
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
      *    ]
-     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
-     * @throws MasterZero\Nextcloud\Exceptions\CurlException
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
      */
     public function deleteUser(string $userid) : array
     {

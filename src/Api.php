@@ -5,7 +5,7 @@ use MercierCorentin\Nextcloud\Exceptions\CurlException;
 
 
 /**
-* class MasterZero\Nextcloud\Api
+* class MercierCorentin\Nextcloud\Api
 */
 class Api
 {
@@ -155,9 +155,9 @@ class Api
      * @param $url | string
      * @param $method | string
      * @param $headers | array of strings
-     * @return MasterZero\Nextcloud\Response
-     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
-     * @throws MasterZero\Nextcloud\Exceptions\CurlException
+     * @return MercierCorentin\Nextcloud\Response
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
      */
     protected function request(string $url, string $method = 'GET', $data = '', array $headers = []) : Response
     {
