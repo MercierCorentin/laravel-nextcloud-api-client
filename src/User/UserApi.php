@@ -3,7 +3,7 @@ namespace MercierCorentin\Nextcloud\User;
 
 use MercierCorentin\Nextcloud\Exceptions\CurlException;
 use MercierCorentin\Nextcloud\Api;
-use MercierCorentin\Nextcloud\Status;
+use MercierCorentin\Nextcloud\User\Status;
 
 
 /**
@@ -147,7 +147,7 @@ class UserApi extends Api
 
         $userData = $response->getData();
         $ret = [
-            'success' => $response->getStatus() === Status::USER_INFOS_OK,
+            'success' => $response->getStatus() === Status::USERINFOS_OK,
             'message' => $response->getMessage(),
             'infos' => $userData,
             'response' => $response,
@@ -299,10 +299,12 @@ class UserApi extends Api
 
         $groups = $response->getData('groups');
 
+        $groups = isset($groups['element'])? $groups['element'] : []; 
+
         $ret = [
             'success' => $response->getStatus() === Status::GETUSER_GROUP_OK,
             'message' => $response->getMessage(),
-            'groups'  => $groups['element'],
+            'groups'  => $groups,
             'response' => $response,
         ];
 
@@ -462,11 +464,13 @@ class UserApi extends Api
         $response = $this->request($url, $method);
 
         $groups = $response->getData();
+        $groups = isset($groups['element'])? $groups['element'] : []; 
+
 
         $ret = [
             'success' => $response->getStatus() === Status::GETUSER_GROUP_OK,
             'message' => $response->getMessage(),
-            'subadmins'  => $groups['element'],
+            'subadmins'  => $groups,
             'response' => $response,
         ];
 
