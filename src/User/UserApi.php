@@ -118,7 +118,7 @@ class UserApi extends Api
         $ret = [
             'success' => $response->getStatus() === Status::USERLIST_OK,
             'message' => $response->getMessage(),
-            'users' => $userData['element'],
+            'users' => $userData,
             'response' => $response,
         ];
 

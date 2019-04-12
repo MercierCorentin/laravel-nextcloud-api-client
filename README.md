@@ -7,6 +7,9 @@ Features added:
 - Arrays serialisation
 - More options in user creation
 - Resend welcome email method
+- Groups Api client
+- Apps Api client
+- Empty responses handling
 
 # Setup:
 1. Use following command in your terminal to install this library. (Currently the library is in development mode):
@@ -136,5 +139,3 @@ $api = new Api([
 $api->createUser( 'dummy', 'qwerty');
 
 ```
-# To do 
-- Add groups management

@@ -12,6 +12,18 @@ use MercierCorentin\Nextcloud\App\Status;
 */
 class AppApi extends Api
 {
+    /**
+     * method to get nextcloud apps list 
+     *
+     * @param $appid | string : enabled or disabled
+     * @return array [
+     *    success: is success request
+     *    message: comment message from nextcloud server
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
+     *    ]
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
+     */
     public function getListApps(string $filter){
         $url = $this->baseUrl . '/' . $this->apiPath .  '/' . $this->appPath . "?filter=".$filter;
         $method = static::METHOD_GET;
@@ -29,7 +41,18 @@ class AppApi extends Api
 
         return $ret;
     }  
-    
+    /**
+     * method to get nextcloud app infos 
+     *
+     * @param $appid | string : app name 
+     * @return array [
+     *    success: is success request
+     *    message: comment message from nextcloud server
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
+     *    ]
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
+     */
     public function getAppInfos(string $appid){
         $url = $this->baseUrl . '/' . $this->apiPath .  '/' . $this->appPath . "/". $appid;
         $method = static::METHOD_GET;
@@ -47,6 +70,18 @@ class AppApi extends Api
         return $ret;
     }
 
+    /**
+     * method to enable nextcloud app 
+     *
+     * @param $appid | string : app name 
+     * @return array [
+     *    success: is success request
+     *    message: comment message from nextcloud server
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
+     *    ]
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
+     */
     public function enableApp(string $appid){
         $url = $this->baseUrl . '/' . $this->apiPath .  '/' . $this->appPath . "/". $appid;
         $method = static::METHOD_POST;
@@ -60,6 +95,19 @@ class AppApi extends Api
 
         return $ret;  
     }
+
+    /**
+     * method to disable nextcloud app 
+     *
+     * @param $appid | string : app name 
+     * @return array [
+     *    success: is success request
+     *    message: comment message from nextcloud server
+     *    response | MercierCorentin\Nextcloud\Response: response object with details of nextcloud answer
+     *    ]
+     * @throws MercierCorentin\Nextcloud\Exceptions\XMLParseException
+     * @throws MercierCorentin\Nextcloud\Exceptions\CurlException
+     */
     public function disableApp(string $appid){
         $url = $this->baseUrl . '/' . $this->apiPath .  '/' . $this->appPath . "/". $appid;
         $method = static::METHOD_DELETE;
