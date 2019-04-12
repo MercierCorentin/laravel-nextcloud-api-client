@@ -1,5 +1,5 @@
 # Laravel Nextcloud API User Management
-Manage your nextcloud users via laravel for 16.0
+Actually in developpement. User management done. 
 
 Forked from [MasterZero/laravel-nextcloud-user-management](https://github.com/MasterZero/laravel-nextcloud-user-management) to add more options in the user creation, to add features and for Nextcloud 16 version. 
 

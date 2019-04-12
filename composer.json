@@ -1,22 +1,22 @@
 {
-    "name": "masterzero/nextcloud",
-    "description": "library for nextcloud user management",
+    "name": "MercierCorentin/nextcloud",
+    "description": "Nextcloud api client for laravel",
     "type": "library",
     "license": "MIT",
     "keywords": ["laravel", "nextcloud"],
     "authors": [
         {
-            "name": "masterzero",
-            "email": "masterzerno@gmail.com"
+            "name": "MercierCorentin",
+            "email": "corentin@cmercier.fr"
         }
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.2.0"
     },
     "autoload": {
         "psr-4": {
-            "MasterZero\\Nextcloud\\":"src/"
+            "MercierCorentin\\Nextcloud\\":"src/"
         }
     }
 }
