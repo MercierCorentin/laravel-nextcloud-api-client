@@ -91,8 +91,8 @@ NextcloudApi::disableUser('username');
 
 ```php
 
-use MasterZero\Nextcloud\Exceptions\XMLParseException;
-use MasterZero\Nextcloud\Exceptions\CurlException;
+use MercierCorentin\Nextcloud\Exceptions\XMLParseException;
+use MercierCorentin\Nextcloud\Exceptions\CurlException;
 
 // ... 
 
