@@ -3,6 +3,11 @@ Manage your nextcloud users via laravel for 16.0
 
 Forked from [MasterZero/laravel-nextcloud-user-management](https://github.com/MasterZero/laravel-nextcloud-user-management) to add more options in the user creation, to add features and for Nextcloud 16 version. 
 
+Features added:
+- Arrays serialisation
+- More options in user creation
+- Resend welcome email method
+
 # Setup:
 1. Use following command in your terminal to install this library. (Currently the library is in development mode):
 
