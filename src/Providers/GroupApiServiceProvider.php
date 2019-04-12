@@ -1,7 +1,7 @@
 <?php
 namespace MercierCorentin\Nextcloud\Providers;
 
-use MercierCorentin\Nextcloud\Group;
+use MercierCorentin\Nextcloud\Group\GroupApi;
 use Illuminate\Support\ServiceProvider;
 
 class GroupApiServiceProvider extends ServiceProvider

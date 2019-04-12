@@ -1,7 +1,7 @@
 <?php
 namespace MercierCorentin\Nextcloud\Providers;
 
-use MercierCorentin\Nextcloud\User;
+use MercierCorentin\Nextcloud\User\UserApi;
 use Illuminate\Support\ServiceProvider;
 
 class UserApiServiceProvider extends ServiceProvider
