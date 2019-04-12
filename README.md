@@ -114,7 +114,7 @@ try {
 
 ```php
 
-use MasterZero\Nextcloud\Api;
+use MercierCorentin\Nextcloud\Api;
 
 // ... 
 
