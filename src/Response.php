@@ -108,7 +108,7 @@ class Response
     public function getData($offset = null, $ret_on_unset = '')
     {
         if(is_null($offset)) {
-            return $this->xml;
+            return $this->xml['data'];
         }
 
         if(!isset($this->xml['data'][$offset])) {
