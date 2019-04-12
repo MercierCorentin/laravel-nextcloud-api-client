@@ -1,5 +1,5 @@
 {
-    "name": "MercierCorentin/nextcloud",
+    "name": "mercier-corentin/nextcloud",
     "description": "Nextcloud api client for laravel",
     "type": "library",
     "license": "MIT",
