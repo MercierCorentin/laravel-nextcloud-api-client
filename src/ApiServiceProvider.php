@@ -1,5 +1,5 @@
 <?php
-namespace MasterZero\Nextcloud;
+namespace MercierCorentin\Nextcloud;
 
 use Illuminate\Support\ServiceProvider;
 

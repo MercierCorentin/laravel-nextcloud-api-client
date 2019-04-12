@@ -1,7 +1,7 @@
 <?php
-namespace MasterZero\Nextcloud;
+namespace MercierCorentin\Nextcloud;
 
-use MasterZero\Nextcloud\Exceptions\XMLParseException;
+use MercierCorentin\Nextcloud\Exceptions\XMLParseException;
 
 /**
 * class MasterZero\Nextcloud\Response

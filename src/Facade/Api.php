@@ -1,5 +1,5 @@
 <?php
-namespace MasterZero\Nextcloud\Facade;
+namespace MercierCorentin\Nextcloud\Facade;
 
 use Illuminate\Support\Facades\Facade;
 

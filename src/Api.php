@@ -1,7 +1,7 @@
 <?php
-namespace MasterZero\Nextcloud;
+namespace MercierCorentin\Nextcloud;
 
-use MasterZero\Nextcloud\Exceptions\CurlException;
+use MercierCorentin\Nextcloud\Exceptions\CurlException;
 
 
 /**

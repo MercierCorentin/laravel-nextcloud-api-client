@@ -1,6 +1,6 @@
 <?php
 
-namespace MasterZero\Nextcloud\Exceptions;
+namespace MercierCorentin\Nextcloud\Exceptions;
 
 
 class CurlException extends \Exception
