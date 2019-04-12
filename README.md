@@ -1,23 +1,25 @@
 # Laravel Nextcloud API User Management
-manage your nextcloud users via laravel
+Manage your nextcloud users via laravel for 16.0
+
+Forked from [MasterZero/laravel-nextcloud-user-management](https://github.com/MasterZero/laravel-nextcloud-user-management) to add more options in the user creation, to add features and for Nextcloud 16 version. 
 
 # Setup:
 1. Use following command in your terminal to install this library. (Currently the library is in development mode):
 
-    `composer require masterzero/nextcloud dev-master`
+    `composer require MercierCorentin/nextcloud dev-master`
 
 2. Update the poviders in config/app.php
         
         'providers' => [
             // ...
-            MasterZero\Nextcloud\ApiServiceProvider::class,
+            MercierCorentin\Nextcloud\ApiServiceProvider::class,
         ]
 
 3. Update the aliases in config/app.php
 
         'aliases' => [
             // ...
-            'NextcloudApi' => MasterZero\Nextcloud\Facade\Api::class,
+            'NextcloudApi' => MercierCorentin\Nextcloud\Facade\Api::class,
         ]
 
 4. Create `config/nextcloud.php` with content:
@@ -32,7 +34,7 @@ return [
 
 ```
 
-5. Add these params to `.env` (optional):
+5. Add these params to `.env` (recommended):
 
 ```sh
 NEXTCLOUD_LOGIN=admin
@@ -44,78 +46,43 @@ NEXTCLOUD_BASEURL=http://localhost
 # Usage:
 ### create user:
 ```php
-// reqeust to API
-$data = NextcloudApi::createUser($username, $password);
-
-// do something with it
-if ($data['success']) {
-
-    // do something ...
-
-} else {
-
-    // do something else ...
-
-    echo $data['message'];
-
-}
+// full options
+NextcloudApi::createUser($username, $password, $displayName, $email, $groups, $subadmin, $quota, $language);
+```
+### Resend welcome email
+```php
+NextcloudApi::welcome($username);
+```
+### User list:
+```php
+NextcloudApi::getUserList();
 ```
 
-### user list:
+### Edit user param:
 ```php
 // reqeust to API
-$data =  NextcloudApi::getUserList();
-
-// do something with it
-if ($data['success']) {
-
-    foreach ($data['users'] as $userid) {
-        // do something with $userid
-    }
-
-} else {
-    
-    // do something else ...
-
-}
-
+NextcloudApi::editUser($username,$key,$value);
 ```
+Possible keys:
+- email
+- quota
+- displayname
+- phone
+- address
+- website
+- twitter
+- password
 
-### edit user param:
+
+### Enable/disable user:
 ```php
-// reqeust to API
-$data = NextcloudApi::editUser('rabbit','quota', '200 MB');
-
-if ($data['success']) {
-
-    // do something ...
-
-} else {
-
-    // do something else ...
-
-}
+// Enable
+NextcloudApi::enableUser('username');
+// Diable
+NextcloudApi::disableUser('username');
 ```
 
-
-### enable/disable user:
-```php
-// reqeust to API
-$data = NextcloudApi::enableUser('bird');
-//$data = NextcloudApi::disableUser('turtle');
-
-if ($data['success']) {
-
-    // do something ...
-
-} else {
-
-    // do something else ...
-
-}
-```
-
-# exceptions
+# Exceptions
 
 ```php
 
@@ -164,3 +131,5 @@ $api = new Api([
 $api->createUser( 'dummy', 'qwerty');
 
 ```
+# To do 
+- Add groups management
