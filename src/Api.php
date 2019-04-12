@@ -167,15 +167,30 @@ class Api
      * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
      * @throws MasterZero\Nextcloud\Exceptions\CurlException
      */
-    public function createUser(string $userid, string $password) : array
+    public function createUser(
+        string $userid,     
+        string $password = '',
+        string $displayName = '',
+        string $email = '',
+        array $groups = [],
+        array $subadmin = [],
+        string $quota = '',
+        string $language = ''
+    ) 
     {
 
         $url = $this->baseUrl . '/' . $this->apiPath .  '/' . $this->userPath;
         $method = static::METHOD_POST;
 
         $params = $this->serializeParams([
-            'userid' => $userid,
-            'password' => $password,
+            'userid'        => $userid,
+            'password'      => $password,
+            'displayName'   => $displayName,
+            'email'         => $email,
+            'groups'        => $groups,
+            'subadmin'      => $subadmin,
+            'quota'         => $quota,
+            'language'      => $language 
         ]);
 
         $response = $this->request($url, $method, $params);
@@ -222,6 +237,36 @@ class Api
 
         $ret = [
             'success' => $response->getStatus() === Status::EDITUSER_OK,
+            'message' => $response->getMessage(),
+            'response' => $response,
+        ];
+
+        return $ret;
+    }
+
+    /**
+     * method to resend nextcloud welcome email
+     *
+     * @param $userid | string
+     * @return array [
+     *    success: is success request
+     *    message: comment message from nextcloud server
+     *    response | MasterZero\Nextcloud\Response: response object with details of nextcloud answer
+     *    ]
+     * @throws MasterZero\Nextcloud\Exceptions\XMLParseException
+     * @throws MasterZero\Nextcloud\Exceptions\CurlException
+     */
+    public function Welcome(string $userid) : array
+    {
+
+        $url = $this->baseUrl . '/' . $this->apiPath .  '/' . $this->userPath . '/' . $userid . "/welcome";
+        $method = static::METHOD_POST;
+
+        $response = $this->request($url, $method);
+
+
+        $ret = [
+            'success' => $response->getStatus() === Status::WELCOME_OK,
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -348,7 +393,13 @@ class Api
         $expressions = [];
 
         foreach ($params as $key => $value) {
-            $expressions[] = urlencode($key) . '=' . urlencode($value);
+            if(is_array($value)){
+                foreach ($value as $item) {
+                    $expressions[] = urlencode($key . "[]" ) . '=' . urlencode($item); 
+                }
+            }else {
+                $expressions[] = urlencode($key) . '=' . urlencode($value);
+            }
         }
 
         return implode('&', $expressions);
