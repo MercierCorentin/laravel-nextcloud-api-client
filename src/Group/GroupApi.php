@@ -75,7 +75,7 @@ class GroupApi extends Api
         $ret = [
             'success' => $response->getStatus() === Status::SUBADMINSGROUP_OK,
             'message' => $response->getMessage(),
-            'users'   => $subadmins['element'],
+            'subadmins'   => $subadmins['element'],
             'response' => $response,
         ];
 
