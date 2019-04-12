@@ -54,6 +54,8 @@ class UserApi extends Api
         $response = $this->request($url, $method);
 
         $userData = $response->getData('users');
+        $userData = isset($userData['element'])? $userData['element'] : []; 
+
 
         $ret = [
             'success' => $response->getStatus() === Status::USERLIST_OK,

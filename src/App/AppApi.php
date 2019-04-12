@@ -19,17 +19,18 @@ class AppApi extends Api
         $response = $this->request($url, $method);
 
         $apps = $response->getData("apps");
+        $apps = isset($apps['element'])? $apps['element'] : []; 
         $ret = [
-            'success' => $response->getStatus() === Status::GETLIST_APP_OK,
-            'message' => $response->getMessage(),
-            'apps'  => $apps['element'],
+            'success'  => $response->getStatus() === Status::GETLIST_APP_OK,
+            'message'  => $response->getMessage(),
+            'apps'     => $apps,
             'response' => $response,
         ];
 
         return $ret;
     }  
     
-    public function getAppInfo(string $appid){
+    public function getAppInfos(string $appid){
         $url = $this->baseUrl . '/' . $this->apiPath .  '/' . $this->appPath . "/". $appid;
         $method = static::METHOD_GET;
         

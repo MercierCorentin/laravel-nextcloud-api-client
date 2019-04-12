@@ -19,10 +19,12 @@ class GroupApi extends Api
         $response = $this->request($url, $method);
 
         $groups = $response->getData("groups");
+        $groups = isset($groups['element'])? $groups['element'] : []; 
+
         $ret = [
             'success' => $response->getStatus() === Status::SEARCHGROUP_OK,
             'message' => $response->getMessage(),
-            'groups'  => $groups['element'],
+            'groups'  => $groups,
             'response' => $response,
         ];
 
@@ -55,10 +57,12 @@ class GroupApi extends Api
 
         $response = $this->request($url, $method);
         $users = $response->getData('users');
+        $users = isset($users['element'])? $users['element'] : []; 
+
         $ret = [
             'success' => $response->getStatus() === Status::GETGROUP_USERS_OK,
             'message' => $response->getMessage(),
-            'users'   => $users['element'],
+            'users'   => $users,
             'response' => $response,
         ];
 
@@ -72,10 +76,12 @@ class GroupApi extends Api
 
         $response = $this->request($url, $method);
         $subadmins = $response->getData();
+        $subadmins = isset($subadmins['element'])? $subadmins['element'] : []; 
+        
         $ret = [
             'success' => $response->getStatus() === Status::SUBADMINSGROUP_OK,
             'message' => $response->getMessage(),
-            'subadmins'   => $subadmins['element'],
+            'subadmins'   => $subadmins,
             'response' => $response,
         ];
 
