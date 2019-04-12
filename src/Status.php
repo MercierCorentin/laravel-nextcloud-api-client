@@ -31,6 +31,12 @@ abstract class Status
     const EDITUSER_INVALID_INPUT    = 102; // invalid input data
 
     /**
+     * User resend Welcome email endpoint
+     */
+    const WELCOME_OK                = 100;
+    const WELCOME_INVALID_MAIL      = 101;
+    const WELCOME_SEND_FAILED       = 102;
+    /**
      * User disable endpoint
      */
     const DISABLEUSER_OK            = 100; // successful
