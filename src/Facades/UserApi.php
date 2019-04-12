@@ -4,10 +4,10 @@ namespace MercierCorentin\Nextcloud\Facade;
 use Illuminate\Support\Facades\Facade;
 
 
-class Api extends Facade
+class UserApi extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'NextcloudApi';
+        return 'UserApi';
     }
 }
