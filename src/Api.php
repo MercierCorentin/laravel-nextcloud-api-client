@@ -46,9 +46,14 @@ class Api
     protected $userPath = 'cloud/users';
 
     /**
-     * path for user actions
+     * path for group actions
      */
     protected $groupPath = 'cloud/groups';
+
+    /**
+     * path for group actions
+     */
+    protected $appPath = 'cloud/apps';
 
     /**
      * path suffix for enable

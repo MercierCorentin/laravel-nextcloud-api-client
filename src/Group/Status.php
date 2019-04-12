@@ -4,7 +4,7 @@ namespace MercierCorentin\Nextcloud\Group;
 use MercierCorentin\Nextcloud\Exceptions\XMLParseException;
 
 /**
-* class MasterZero\Nextcloud\Response
+* class MercierCorentin\Nextcloud\Response
 * statuses for nextcloud response
 */
 abstract class Status
