@@ -10,3 +10,6 @@ When the documentation had some lacks, I submited PR:
 
 # Setup and usage:
 See [Wiki](https://github.com/MercierCorentin/laravel-nextcloud-api-client/wiki)
+
+# What's next?
+- Files managment trough webdav protocol
