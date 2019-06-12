@@ -15,11 +15,17 @@ abstract class Status
     /**
      * User create endpoint
      */
-    const CREATEUSER_OK             = 100; // successful
-    const CREATEUSER_INVALID_INPUT  = 101; // invalid input data
-    const CREATEUSER_EXIST          = 102; // username already exists
-    const CREATEUSER_UNKNOWN        = 103; // unknown error occurred whilst adding the user
-    
+    const CREATEUSER_OK                     = 100; // successful
+    const CREATEUSER_INVALID_INPUT          = 101; // invalid input data
+    const CREATEUSER_EXIST                  = 102; // username already exists
+    const CREATEUSER_UNKNOWN                = 103; // unknown error occurred whilst adding the user
+    const CREATEUSER_GROUP_NOT_EXIST        = 104; // group does not exist
+    const CREATEUSER_NO_PRIVILEGES_ERROR    = 105; // insufficient privileges for group
+    const CREATEUSER_NO_GROUP_SPECIFIED     = 106; // no group specified (required for subadmins)
+    const CREATEUSER_EASY_PASSWORD          = 107; // all errors that contain a hint - for example “Password is among the 1,000,000 most common ones. Please make it unique.” (this code was added in 12.0.6 & 13.0.1)
+    const CREATEUSER_NO_PASSWORD_NO_MAIL    = 108; // password and email empty. Must set password or an email
+    const CREATEUSER_EMAIL_NOT_SEND         = 109; // invitation email cannot be send
+
     /**
      * User list endpoint
      */
