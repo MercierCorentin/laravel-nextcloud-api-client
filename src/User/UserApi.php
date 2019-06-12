@@ -61,6 +61,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::CREATEUSER_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -117,6 +118,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::USERLIST_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'users' => $userData,
             'response' => $response,
@@ -148,6 +150,7 @@ class UserApi extends Api
         $userData = $response->getData();
         $ret = [
             'success' => $response->getStatus() === Status::USERINFOS_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'infos' => $userData,
             'response' => $response,
@@ -186,6 +189,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::EDITUSER_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -215,6 +219,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::DISABLEUSER_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -243,6 +248,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::ENABLEUSER_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -271,6 +277,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::DELETEUSER_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -303,6 +310,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::GETUSER_GROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'groups'  => $groups,
             'response' => $response,
@@ -336,6 +344,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::ADDUSER_TO_GROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -369,6 +378,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::DELETEUSER_FROM_GROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -403,6 +413,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::DELETEUSER_FROM_GROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -436,6 +447,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::DELETEUSER_FROM_GROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -469,6 +481,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::GETUSER_GROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'subadmins'  => $groups,
             'response' => $response,
@@ -500,6 +513,7 @@ class UserApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::WELCOME_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
