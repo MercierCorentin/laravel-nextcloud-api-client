@@ -40,6 +40,7 @@ class GroupApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::SEARCHGROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'groups'  => $groups,
             'response' => $response,
@@ -71,6 +72,7 @@ class GroupApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::CREATEGROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];
@@ -102,6 +104,7 @@ class GroupApi extends Api
 
         $ret = [
             'success' => $response->getStatus() === Status::GETGROUP_USERS_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'users'   => $users,
             'response' => $response,
@@ -134,6 +137,7 @@ class GroupApi extends Api
         
         $ret = [
             'success' => $response->getStatus() === Status::SUBADMINSGROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'subadmins'   => $subadmins,
             'response' => $response,
@@ -161,6 +165,7 @@ class GroupApi extends Api
         $response = $this->request($url, $method);
         $ret = [
             'success' => $response->getStatus() === Status::DELETEGROUP_OK,
+            'status' => $response->getStatus(), 
             'message' => $response->getMessage(),
             'response' => $response,
         ];

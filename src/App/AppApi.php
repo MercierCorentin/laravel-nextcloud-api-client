@@ -7,7 +7,7 @@ use MercierCorentin\Nextcloud\App\Status;
 
 
 
-/**
+/** 
 * class MercierCorentin\Nextcloud\Group\GroupApi
 */
 class AppApi extends Api
@@ -34,7 +34,8 @@ class AppApi extends Api
         $apps = isset($apps['element'])? $apps['element'] : []; 
         $ret = [
             'success'  => $response->getStatus() === Status::GETLIST_APP_OK,
-            'message'  => $response->getMessage(),
+            'status' => $response->getStatus(), 
+            'message' => $response->getMessage(),
             'apps'     => $apps,
             'response' => $response,
         ];
@@ -62,7 +63,8 @@ class AppApi extends Api
         $infos = $response->getData();
         $ret = [
             'success'  => $response->getStatus() === Status::GET_INFO_APP_OK,
-            'message'  => $response->getMessage(),
+            'status' => $response->getStatus(), 
+            'message' => $response->getMessage(),
             'infos'    => $infos,
             'response' => $response,
         ];
@@ -89,7 +91,8 @@ class AppApi extends Api
 
         $ret = [
             'success'  => $response->getStatus() === Status::ENABLE_APP_OK,
-            'message'  => $response->getMessage(),
+            'status' => $response->getStatus(), 
+            'message' => $response->getMessage(),
             'response' => $response,
         ];
 
@@ -115,7 +118,8 @@ class AppApi extends Api
 
         $ret = [
             'success'  => $response->getStatus() === Status::DISABLE_APP_OK,
-            'message'  => $response->getMessage(),
+            'status' => $response->getStatus(), 
+            'message' => $response->getMessage(),
             'response' => $response,
         ];
 
