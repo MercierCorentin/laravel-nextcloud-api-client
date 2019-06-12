@@ -20,8 +20,8 @@ abstract class Status
      */
     const CREATEGROUP_OK                = 100; // successful
     const CREATEGROUP_INVALID_INPUT     = 101; // invalid input data
-    const CREATEGROUP_EXIST             = 102; // grou already exists
-    const CREATEGROUP_UNKNOWN           = 103; // unknown error occurred whilst creatin group
+    const CREATEGROUP_EXIST             = 102; // group already exists
+    const CREATEGROUP_UNKNOWN           = 103; // unknown error occurred while creating group
     
     /**
      * Get group users
