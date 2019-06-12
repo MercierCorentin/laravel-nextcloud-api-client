@@ -2,16 +2,28 @@
 namespace MercierCorentin\Nextcloud\Test;
 
 use MercierCorentin\Nextcloud\User\UserApi;
+Use MercierCorentin\Nextcloud\User\Status;
 
-class MyPackageFunctionTest extends TestCase
+class UserApiTest extends TestCase
 {
+
+
     /**
-     * Check that the multiply method returns correct result
+     * 
      * @return void
      */
-    public function testMultiplyReturnsCorrectValue()
+    public function testCreateUser($user)
     {
-        $this->assertSame(MyPackage::multiply(4, 4), 16);
-        $this->assertSame(MyPackage::multiply(2, 9), 18);
+        $response = UserApi::createUser($user[0], $user[1], $user[2], $user[3], $user[4], $user[5], $user[6], $user[7]);
+        // Fixing master...
+        // $this->assertContains($response["status"], [Status::CREATEUSER_OK, Status::])
+        // UserApi->createUser($user);
+    }
+
+    public function userProvider(){
+        return [
+            ["jpoulino", "\$up3R\$t0nG_P455W0rd", "Jean-Poux Lino", "jean-poux.lino@jjdu93.lino.com", [], [], "5GB", "fr"],
+            ["nopasswordmail", "", "No Pass Mail", "no-pass-mail@example.com", [], [], "1 kb", ""],
+        ];
     }
 }
