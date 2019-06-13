@@ -41,7 +41,7 @@ class UserApiTest extends TestCase
             array_push($expectedUsers, $element[0]);
         }
         
-        $this->assertSame($expectedUsers, $response["users"]);
+        $this->assertSame($expectedUsers, $response["users"], $response["message"]);
     }
 
     /**
@@ -52,8 +52,8 @@ class UserApiTest extends TestCase
      */
     public function testGetUserDetails($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
         $response = $this->UserApi->getUserInfos($userId);
-        $this->assertTrue($response['success']);
-        $this->assertEquals($response["infos"]["email"], $userEmail);
+        $this->assertTrue($response['success'], $response["message"]);
+        $this->assertEquals($response["infos"]["email"], $userEmail, $response["message"]);
     }
 
     /**
@@ -75,7 +75,7 @@ class UserApiTest extends TestCase
      */
     public function testEditUser($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
         $response = $this->UserApi->editUser($userId, "displayname", "TestDisplayName");
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     /**
@@ -86,7 +86,7 @@ class UserApiTest extends TestCase
      */
     public function testDisableUser($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
         $response = $this->UserApi->disableUser($userId);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
     
     /**
@@ -97,9 +97,91 @@ class UserApiTest extends TestCase
      */
     public function testEnableUser($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
         $response = $this->UserApi->enableUser($userId);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
     
+    /**
+     * Test user groups retrieve
+     * @return void
+     * @group no_modif
+     * @dataProvider userProvider
+     */
+    public function testGetUserGroups($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
+        $response = $this->UserApi->getUserGroups($userId);
+        $this->assertTrue($response["success"], $response["message"]);
+    }
+
+    /**
+     * Test add user to group
+     * @return void
+     * @group modif
+     * @dataProvider userProvider
+     * @depends MercierCorentin\Nextcloud\Test\GroupApiTest::testSearchGroupsAll
+     */
+    
+    public function testAddUserToGroup($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
+        $response = $this->UserApi->addUserToGroup($userId, $groups[0]);
+        $this->assertTrue($response["success"], $response["message"]);
+    }
+
+    /**
+     * Test user subadmin promotion
+     * @return void
+     * @group modif
+     * @dataProvider userProvider
+     * @depends MercierCorentin\Nextcloud\Test\GroupApiTest::testSearchGroupsAll
+     */
+    public function testPromoteUserSubadmin($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
+        $response = $this->UserApi->promoteUserSubadmin($userId, $groups[0]);
+        $this->assertTrue($response["success"], $response["message"]);
+    }
+
+    /**
+     * Test user subadmin demotion
+     * @return void
+     * @group modif
+     * @dataProvider userProvider
+     * @depends MercierCorentin\Nextcloud\Test\GroupApiTest::testSearchGroupsAll
+     */
+    public function testDemoteUserSubadmin($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
+        $response = $this->UserApi->demoteUserSubadmin($userId, $groups[0]);
+        $this->assertTrue($response["success"], $response["message"]);
+    }
+
+    /**
+     * Test remove user from group
+     * @return void
+     * @group modif
+     * @dataProvider userProvider
+     * @depends MercierCorentin\Nextcloud\Test\GroupApiTest::testSearchGroupsAll
+     */
+    public function testDeleteUserFromGroup($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
+        $response = $this->UserApi->deleteUserFromGroup($userId, $groups[0]);
+        $this->assertTrue($response["success"], $response["message"]);
+    }
+    
+    /**
+     * Test groups where user is subadmin retrieve
+     * @return void
+     * @group no_modif
+     * @dataProvider userProvider
+     */
+    public function testGetUserSubadminGroups($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
+        $response = $this->UserApi->getuserSubadminGroups($userId);
+        $this->assertTrue($response["success"], $response["message"]);
+    }
+
+    /**
+     * Test nextcloud welcome email resend
+     * @return void
+     * @group email
+     * @dataProvider userProvider
+     */
+    public function testWelcome($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
+        $response = $this->UserApi->welcome($userId);
+        $this->assertTrue($response["success"], $response["message"]);
+    }
+
     /**
      * Tests user deletion
      * @return void
@@ -108,7 +190,7 @@ class UserApiTest extends TestCase
     */
     public function testDeleteUser($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
         $response = $this->UserApi->deleteUser($userId);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     /**

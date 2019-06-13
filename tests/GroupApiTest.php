@@ -34,7 +34,7 @@ class GroupApiTest extends TestCase
 
     /**
      * Tests all groups retrieve
-     * @return void
+     * @return array $groups 
      * @group no_modif
      */
     public function testSearchGroupsAll(){
@@ -52,6 +52,7 @@ class GroupApiTest extends TestCase
             $groupsProvided,
             $response["groups"]
         );
+        return $response['groups'];
     }
 
     /**
