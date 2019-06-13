@@ -1,7 +1,6 @@
 <?php
 namespace MercierCorentin\Nextcloud\Test;
 
-use MercierCorentin\Nextcloud\Group\GroupApi;
 use MercierCorentin\Nextcloud\Group\Status;
 
 class GroupApiTest extends TestCase
@@ -11,38 +10,35 @@ class GroupApiTest extends TestCase
     
     private $groupNumber = 5;
 
-    // Group creation tests need to be improved!
-
     /**
-     * Check that the groups are created
+     * Tests group creation
      * @return void
      * @group creation
      * @dataProvider groupProvider
      */
     public function testCreateGroup($groupId){
-        $GroupApi = new GroupApi;
-        $response = $GroupApi->createGroup($groupId);
+        $response = $this->GroupApi->createGroup($groupId);
         $this->assertEquals(Status::CREATEGROUP_OK, $response["status"]);
     }
 
     /**
+     * Tests group creation with groupId already used
      * @return void
      * @group creation
      * @dataProvider groupProvider
      */
     public function testCreateExistGroup($groupId){
-        $GroupApi = new GroupApi;
-        $response = $GroupApi->createGroup($groupId);
+        $response = $this->GroupApi->createGroup($groupId);
         $this->assertEquals(Status::CREATEGROUP_EXIST, $response["status"]);
     }
 
     /**
+     * Tests all groups retrieve
      * @return void
      * @group no_modif
      */
     public function testSearchGroupsAll(){
-        $GroupApi = new GroupApi;
-        $response = $GroupApi->searchGroups($this->groupIdRoot);
+        $response = $this->GroupApi->searchGroups($this->groupIdRoot);
         
         // Formatting output of groupProvider
         $groupsProvided = [];
@@ -59,13 +55,34 @@ class GroupApiTest extends TestCase
     }
 
     /**
+     * Test Group users retrieve
+     * @return void
+     * @dataProvider groupProvider
+     * @group no_modif
+     */
+    public function testGetGroupUsers($groupId){
+        $response = $this->GroupApi->getGroupUsers($groupId);
+        $this->assertTrue($response["success"]);
+    }
+
+    /**
+     * Test Group Subadmins retrieve
+     * @return void
+     * @dataProvider groupProvider
+     * @group no_modif
+     */
+    public function testGetGroupSubadmins($groupId){
+        $response = $this->GroupApi->getGroupUsers($groupId);
+        $this->assertTrue($response["success"]);
+    }
+
+    /**
      * @return void
      * @dataProvider groupProvider
      * @group delete
      */
     public function testDeleteGroup($groupId){
-        $GroupApi = new GroupApi;
-        $response = $GroupApi->deleteGroup($groupId);
+        $response = $this->GroupApi->deleteGroup($groupId);
         $this->assertTrue($response["success"]);
     }
 

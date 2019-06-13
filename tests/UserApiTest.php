@@ -1,7 +1,6 @@
 <?php
 namespace MercierCorentin\Nextcloud\Test;
 
-use MercierCorentin\Nextcloud\User\UserApi;
 Use MercierCorentin\Nextcloud\User\Status;
 
 class UserApiTest extends TestCase
