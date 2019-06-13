@@ -1,11 +1,17 @@
 <?php
 namespace MercierCorentin\Nextcloud\Test;
 use MercierCorentin\Nextcloud\Facades;
+use MercierCorentin\Nextcloud\User\UserApi;
+use MercierCorentin\Nextcloud\App\AppApi;
+use MercierCorentin\Nextcloud\Group\GroupApi;
 use MercierCorentin\Nextcloud\Providers;
 
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
+    public $UserApi;
+    public $GroupApi;
+    public $AppApi;
     /**
      * Setup the test environment.
      */
@@ -13,6 +19,9 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         parent::setUp();
         config(require("./config/nextcloud.php"));
+        $this->UserApi = new UserApi;
+        $this->GroupApi = new GroupApi;
+        $this->AppApi = new AppApi;
     }
     protected function getPackageProviders($app)
     {

@@ -69,23 +69,6 @@ class GroupApiTest extends TestCase
         $this->assertTrue($response["success"]);
     }
 
-
-    /**
-     * @return void
-     * @group no_modif
-     */
-    public function testGetGroupUsers(){
-
-    }
-
-    /**
-     * @return void
-     * @group no_modif
-     */
-    public function testGetGroupSubadmins(){
-
-    }
-
     public function groupProvider(){
         $groupIds = [];
         for ($i = 1; $i <= $this->groupNumber; $i++ ){ 
