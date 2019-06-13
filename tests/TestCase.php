@@ -3,11 +3,17 @@ namespace MercierCorentin\Nextcloud\Test;
 use MercierCorentin\Nextcloud\Facades;
 use MercierCorentin\Nextcloud\Providers;
 
-use MercierCorentin\Nextcloud\Test\TestCase as NextcloudTestCase;
 
-class TestCase extends NextcloudTestCase
+class TestCase extends \Orchestra\Testbench\TestCase
 {
-
+    /**
+     * Setup the test environment.
+     */
+    public function setUp() : void
+    {
+        parent::setUp();
+        config(require("./config/nextcloud.php"));
+    }
     protected function getPackageProviders($app)
     {
         return [

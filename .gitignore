@@ -1,3 +1,5 @@
 composer.lock
 src
 vendor
+config/.env
+.phpunit.result.cache
