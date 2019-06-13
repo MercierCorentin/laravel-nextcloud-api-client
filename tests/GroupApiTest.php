@@ -64,7 +64,8 @@ class GroupApiTest extends TestCase
      * @group delete
      */
     public function testDeleteGroup($groupId){
-        $response = GroupApi::deleteGroup($groupId);
+        $GroupApi = new GroupApi;
+        $response = $GroupApi->deleteGroup($groupId);
         $this->assertTrue($response["success"]);
     }
 

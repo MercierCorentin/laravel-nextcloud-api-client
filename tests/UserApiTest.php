@@ -25,15 +25,22 @@ class UserApiTest extends TestCase
      * @group no_modif
      */
     public function testGetUserList(){
-        $response = UserApi::getUserList("");
-        $this->assertSame($this->userProvider(), $response["users"]);
+        $UserApi = new UserApi;
+        $response = $UserApi->getUserList("");
+
+        $expectedUsers = ["admin"];
+        foreach ($this->userProvider() as $element) {
+            array_push($expectedUsers, $element[0]);
+        }
+        
+        $this->assertSame($expectedUsers, $response["users"]);
     }
     
 
     public function userProvider(){
         return [
-            "normal" => ["jpoulino", "", "Jean-Poux Lino", "jean-poux.lino@jjdu93.lino.com", [], [], "5GB", "fr"],
-            "nopassword" => ["nopasswordmail", "", "No Pass Mail", "no-pass-mail@example.com", [], [], "1 Gb", ""],
+            "normal" => ["jpoulino", "j3\$bgn7è", "Jean-Poux Lino", "corentin.mercier@etu.utc.fr", [], [], "5GB", "fr"],
+            "nopassword" => ["nopasswordmail", "", "No Pass Mail", "cocomercier24@gmail.com", [], [], "1 Gb", ""],
         ];
     }
 }
