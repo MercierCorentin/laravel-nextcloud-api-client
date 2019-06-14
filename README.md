@@ -12,4 +12,8 @@ When the documentation had some lacks, I submited PR:
 See [Wiki](https://github.com/MercierCorentin/laravel-nextcloud-api-client/wiki)
 
 # What's next?
+- Tests documentation
+- App config Api client
+- App config Api client tests
+- App config Api documentation
 - Files managment trough webdav protocol
