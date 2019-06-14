@@ -20,8 +20,8 @@
         </whitelist>
     </filter>
     <php>
-        <env name="NEXTCLOUD_LOGIN" value="admin"/>
-        <env name="NEXTCLOUD_PASSWORD" value="password"/>
-        <env name="NEXTCLOUD_BASEURL" value="https://cloud.test.picasoft.net"/>
+        <env name="NEXTCLOUD_LOGIN" value=""/>
+        <env name="NEXTCLOUD_PASSWORD" value=""/>
+        <env name="NEXTCLOUD_BASEURL" value=""/>
     </php>
 </phpunit>

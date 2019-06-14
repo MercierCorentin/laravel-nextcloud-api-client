@@ -3,3 +3,4 @@ src
 vendor
 config/.env
 .phpunit.result.cache
+phpunit.xml
