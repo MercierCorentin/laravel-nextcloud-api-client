@@ -18,5 +18,14 @@
         "psr-4": {
             "MercierCorentin\\Nextcloud\\":"src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MercierCorentin\\Nextcloud\\Test\\":"tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.2",
+        "orchestra/testbench": "^3.8"
     }
 }
