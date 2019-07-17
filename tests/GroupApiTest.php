@@ -61,7 +61,6 @@ class GroupApiTest extends TestCase
             $response["groups"],
             $response["message"]
         );
-        print_r($response['groups']);
         return $response['groups'];
     }
 
