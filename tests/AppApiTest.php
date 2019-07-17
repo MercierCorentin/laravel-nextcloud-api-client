@@ -13,7 +13,7 @@ class AppApiTest extends TestCase
      */
     public function testGetListApps(){
         $response = $this->AppApi->getListApps("disabled");
-        $this->assertTrue($response['success'], $response["message"]);
+        $this->assertTrue($response["success"], $response["message"]);
         return $response["apps"];
     }
 
@@ -25,7 +25,7 @@ class AppApiTest extends TestCase
      */
     public function testGetAppInfos($apps){
         $response = $this->AppApi->getAppInfos($apps[0]);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     /**
@@ -35,7 +35,7 @@ class AppApiTest extends TestCase
      */
     public function testGetAppInfosFail(){
         $response = $this->AppApi->getAppInfos("impossibleAppNameToGetAnError");
-        $this->assertTrue($response["status"]===998);
+        $this->assertTrue($response["status"] === 998, $response["message"]);
     }
     
     /**
@@ -46,7 +46,7 @@ class AppApiTest extends TestCase
      */
     public function testEnableApp($apps){
         $response = $this->AppApi->enableApp($apps[0]);
-        $this->assertTrue($response["success"]);      
+        $this->assertTrue($response["success"], $response["message"]);      
     }
 
     /**
@@ -57,7 +57,7 @@ class AppApiTest extends TestCase
      */
     public function testDisableApp($apps){
         $response = $this->AppApi->disableApp($apps[0]);
-        $this->assertTrue($response["success"]);      
+        $this->assertTrue($response["success"], $response["message"]);      
     }
     
 

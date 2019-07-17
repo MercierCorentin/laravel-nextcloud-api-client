@@ -121,7 +121,7 @@ class UserApiTest extends TestCase
     
     public function testAddUserToGroup($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
         $response = $this->UserApi->addUserToGroup($userId, $groups[0]);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     /**
@@ -133,7 +133,7 @@ class UserApiTest extends TestCase
      */
     public function testPromoteUserSubadmin($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
         $response = $this->UserApi->promoteUserSubadmin($userId, $groups[0]);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     /**
