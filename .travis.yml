@@ -1,0 +1,12 @@
+language: php
+install: composer install
+before_script:
+  - sed -e 's@<env name="NEXTCLOUD_LOGIN" value=""/>@<env name="NEXTCLOUD_LOGIN" value="'$NEXTCLOUD_LOGIN'"/>@' phpunit.xml.example > phpunit.temp1.xml
+  - sed -e 's@<env name="NEXTCLOUD_PASSWORD" value=""/>@<env name="NEXTCLOUD_PASSWORD" value="'$NEXTCLOUD_PASSWORD'"/>@' phpunit.temp1.xml > phpunit.temp2.xml
+  - sed -e 's@<env name="NEXTCLOUD_BASEURL" value=""/>@<env name="NEXTCLOUD_BASEURL" value="'$NEXTCLOUD_BASEURL'"/>@' phpunit.temp2.xml > phpunit.xml
+  - rm phpunit.temp1.xml phpunit.temp2.xml
+script:
+  - ./vendor/bin/phpunit --group creation
+  - ./vendor/bin/phpunit --group no_modif,modif
+  - ./vendor/bin/phpunit --group delete
+
