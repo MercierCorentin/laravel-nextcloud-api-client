@@ -133,7 +133,11 @@ class Response
         $xmlArray = json_decode(json_encode($xmlJson),1);
 
         // Empty arrays (corresponding to empty tags) to empty string
+<<<<<<< Updated upstream
         $xmlArray =$this->recursiveEmptyArrayToEmptyString($xmlArray);
+=======
+        $xmlArray =$this->recursive_foreach($xmlArray);
+>>>>>>> Stashed changes
 
         return $xmlArray;
     }

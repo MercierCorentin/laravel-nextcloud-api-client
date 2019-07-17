@@ -157,7 +157,7 @@ class UserApiTest extends TestCase
      */
     public function testDeleteUserFromGroup($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
         $response = $this->UserApi->deleteUserFromGroup($userId, $groups[0]);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
     
     /**
@@ -201,7 +201,7 @@ class UserApiTest extends TestCase
     */
     public function testNonExistDeleteUser($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
         $response = $this->UserApi->deleteUser($userId);
-        $this->assertTrue($response["status"] === Status::DELETEUSER_FAILURE);
+        $this->assertTrue($response["status"] === Status::DELETEUSER_FAILURE, $response["message"]);
     }
 
     public function userProvider(){
