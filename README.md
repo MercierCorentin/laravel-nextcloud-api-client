@@ -10,6 +10,8 @@ When the documentation had some lacks, I submited PR:
 
 
 # Setup and usage:
+Tests passed on Nextcloud 16 and 17
+
 See [Wiki](https://github.com/MercierCorentin/laravel-nextcloud-api-client/wiki)
 
 # What's next?
