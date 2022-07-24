@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/MercierCorentin/laravel-nextcloud-api-client.svg?branch=develop)](https://travis-ci.org/MercierCorentin/laravel-nextcloud-api-client)
 # Nextcloud User provisionning API client
 A laravel librairie to manage Nextcloud's Users, Apps and Groups. 
 
@@ -9,10 +10,11 @@ When the documentation had some lacks, I submited PR:
 
 
 # Setup and usage:
+Tests passed on Nextcloud 24
+
 See [Wiki](https://github.com/MercierCorentin/laravel-nextcloud-api-client/wiki)
 
 # What's next?
-- Tests documentation
 - App config Api client
 - App config Api client tests
 - App config Api documentation

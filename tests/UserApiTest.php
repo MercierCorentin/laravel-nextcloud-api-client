@@ -36,12 +36,12 @@ class UserApiTest extends TestCase
     public function testGetUserList(){
         $response = $this->UserApi->getUserList("");
 
-        $expectedUsers = ["admin"];
+        $expectedUsers = [config('nextcloud.login')];
         foreach ($this->userProvider() as $element) {
             array_push($expectedUsers, $element[0]);
         }
         
-        $this->assertSame($expectedUsers, $response["users"], $response["message"]);
+        $this->assertEqualsCanonicalizing($expectedUsers, $response["users"], $response["message"]);
     }
 
     /**
@@ -121,7 +121,7 @@ class UserApiTest extends TestCase
     
     public function testAddUserToGroup($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
         $response = $this->UserApi->addUserToGroup($userId, $groups[0]);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     /**
@@ -133,7 +133,7 @@ class UserApiTest extends TestCase
      */
     public function testPromoteUserSubadmin($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
         $response = $this->UserApi->promoteUserSubadmin($userId, $groups[0]);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     /**
@@ -157,7 +157,7 @@ class UserApiTest extends TestCase
      */
     public function testDeleteUserFromGroup($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language, $groups){
         $response = $this->UserApi->deleteUserFromGroup($userId, $groups[0]);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
     
     /**
@@ -187,7 +187,7 @@ class UserApiTest extends TestCase
      * @return void
      * @group delete
      * @dataProvider userProvider
-    */
+     */
     public function testDeleteUser($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
         $response = $this->UserApi->deleteUser($userId);
         $this->assertTrue($response["success"], $response["message"]);
@@ -198,15 +198,15 @@ class UserApiTest extends TestCase
      * @return void
      * @group delete
      * @dataProvider userProvider
-    */
+     */
     public function testNonExistDeleteUser($userId, $userPass, $userDisplayName, $userEmail, $userGroups, $userSubAdminGroups, $userQuota, $language){
         $response = $this->UserApi->deleteUser($userId);
-        $this->assertTrue($response["status"] === Status::DELETEUSER_FAILURE);
+        $this->assertTrue($response["status"] === Status::ERROR_NOT_FOUND, $response["message"]);
     }
 
     public function userProvider(){
         return [
-            "normal" => ["jpoulino", "j3\$bgn7è", "Jean-Poux Lino", "jean-poux.lino@example.com", [], [], "5GB", "fr"],
+            "normal" => ["jpoulino", "j3\$bgn7èabcefghijklmnop", "Jean-Poux Lino", "jean-poux.lino@example.com", [], [], "5GB", "fr"],
             "nopassword" => ["nopasswordmail", "", "No Pass Mail", "nopasswordmail@example.com", [], [], "1 Gb", ""],
         ];
     }

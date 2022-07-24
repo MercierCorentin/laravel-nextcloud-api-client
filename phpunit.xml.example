@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="vendor/autoload.php"
-         backupGlobals="false"
-         backupStaticAttributes="false"
-         colors="true"
-         verbose="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false">
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+    bootstrap="vendor/autoload.php"
+    backupGlobals="false"
+    backupStaticAttributes="false"
+    colors="true"
+    verbose="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    processIsolation="false"
+    stopOnFailure="false">
+    <coverage>
+        <include>
+        <directory suffix=".php">src/</directory>
+        </include>
+        <exclude>
+            <file>./src/ApiServiceProvider.php</file>
+            <directory suffix=".php">./src/Providers</directory>
+        </exclude>
+    </coverage>
     <testsuites>
         <testsuite name="MyPackage Test Suite">
-            <directory>tests</directory>
+        <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
     <php>
         <env name="NEXTCLOUD_LOGIN" value=""/>
         <env name="NEXTCLOUD_PASSWORD" value=""/>
         <env name="NEXTCLOUD_BASEURL" value=""/>
+        <env name="XDEBUG_MODE" value="coverage"/>
     </php>
 </phpunit>

@@ -126,7 +126,36 @@ class Response
      */
     protected function stringToXmlArray(string $str)
     {
-        return json_decode(json_encode(simplexml_load_string($str)),1);
+        // XML to JSON
+        $xmlJson = simplexml_load_string($str);
+        
+        // JSON to PHP array
+        $xmlArray = json_decode(json_encode($xmlJson),1);
+
+        // Empty arrays (corresponding to empty tags) to empty string
+        $xmlArray = $this->recursiveEmptyArrayToEmptyString($xmlArray);
+
+        return $xmlArray;
+    }
+
+    public function recursiveEmptyArrayToEmptyString($array)
+    {
+        foreach ($array as $key => $value)
+        {            
+            if(is_array($value))
+            {
+                if(empty($value))
+                {
+                    $array[$key] = "";
+                }
+                else
+                {
+                    $array[$key] = $this->recursiveEmptyArrayToEmptyString($value);
+                }
+            }
+
+        }
+        return $array;
     }
 }
 

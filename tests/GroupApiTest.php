@@ -18,7 +18,11 @@ class GroupApiTest extends TestCase
      */
     public function testCreateGroup($groupId){
         $response = $this->GroupApi->createGroup($groupId);
-        $this->assertEquals(Status::CREATEGROUP_OK, $response["status"]);
+        $this->assertEquals(
+            Status::CREATEGROUP_OK,
+            $response["status"],
+            $response["message"]
+        );
     }
 
     /**
@@ -29,13 +33,17 @@ class GroupApiTest extends TestCase
      */
     public function testCreateExistGroup($groupId){
         $response = $this->GroupApi->createGroup($groupId);
-        $this->assertEquals(Status::CREATEGROUP_EXIST, $response["status"]);
+        $this->assertEquals(
+            Status::CREATEGROUP_EXIST,
+            $response["status"],
+            $response["message"]
+        );
     }
 
     /**
      * Tests all groups retrieve
      * @return array $groups 
-     * @group no_modif
+     * @group modif
      */
     public function testSearchGroupsAll(){
         $response = $this->GroupApi->searchGroups($this->groupIdRoot);
@@ -47,10 +55,11 @@ class GroupApiTest extends TestCase
         }
 
         // Assertions
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
         $this->assertSame(
             $groupsProvided,
-            $response["groups"]
+            $response["groups"],
+            $response["message"]
         );
         return $response['groups'];
     }
@@ -63,7 +72,7 @@ class GroupApiTest extends TestCase
      */
     public function testGetGroupUsers($groupId){
         $response = $this->GroupApi->getGroupUsers($groupId);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     /**
@@ -74,17 +83,17 @@ class GroupApiTest extends TestCase
      */
     public function testGetGroupSubadmins($groupId){
         $response = $this->GroupApi->getGroupUsers($groupId);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     /**
      * @return void
      * @dataProvider groupProvider
      * @group delete
-     */
+     *      */
     public function testDeleteGroup($groupId){
         $response = $this->GroupApi->deleteGroup($groupId);
-        $this->assertTrue($response["success"]);
+        $this->assertTrue($response["success"], $response["message"]);
     }
 
     public function groupProvider(){
