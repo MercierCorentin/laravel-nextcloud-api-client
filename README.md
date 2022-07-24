@@ -15,7 +15,6 @@ Tests passed on Nextcloud 16 and 17
 See [Wiki](https://github.com/MercierCorentin/laravel-nextcloud-api-client/wiki)
 
 # What's next?
-- Tests documentation
 - App config Api client
 - App config Api client tests
 - App config Api documentation
