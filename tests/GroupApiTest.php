@@ -43,7 +43,7 @@ class GroupApiTest extends TestCase
     /**
      * Tests all groups retrieve
      * @return array $groups 
-     * @group no_modif
+     * @group modif
      */
     public function testSearchGroupsAll(){
         $response = $this->GroupApi->searchGroups($this->groupIdRoot);
@@ -90,7 +90,7 @@ class GroupApiTest extends TestCase
      * @return void
      * @dataProvider groupProvider
      * @group delete
-     */
+     *      */
     public function testDeleteGroup($groupId){
         $response = $this->GroupApi->deleteGroup($groupId);
         $this->assertTrue($response["success"], $response["message"]);

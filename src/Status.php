@@ -58,6 +58,7 @@ abstract class Status
      * errors
      */
     const ERROR_AUTH                = 997; // bad userid/password data. permission deny.
+    const ERROR_NOT_FOUND           = 998; // bad userid/password data. permission deny.
 
 
 }
