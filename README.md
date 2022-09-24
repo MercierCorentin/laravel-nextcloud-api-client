@@ -1,6 +1,9 @@
 [![Build Status](https://travis-ci.org/MercierCorentin/laravel-nextcloud-api-client.svg?branch=develop)](https://travis-ci.org/MercierCorentin/laravel-nextcloud-api-client)
 # Nextcloud User provisionning API client
+
 A laravel librairie to manage Nextcloud's Users, Apps and Groups. 
+
+Available with composer. https://packagist.org/packages/mercier-corentin/nextcloud
 
 Forked from [MasterZero/laravel-nextcloud-user-management](https://github.com/MasterZero/laravel-nextcloud-user-management)
 
